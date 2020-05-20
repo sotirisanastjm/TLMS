@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
+@SuppressWarnings("serial")
 public class LoginGui extends JFrame{
 	
 	
