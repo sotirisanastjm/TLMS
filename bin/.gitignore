@@ -1,5 +1,3 @@
-/AdminRegistry.class
-/Administrator.class
 /LoginGui$1.class
 /LoginGui$2.class
 /LoginGui$3.class
@@ -10,3 +8,6 @@
 /StartMenuGUI$1.class
 /StartMenuGUI$2.class
 /StartMenuGUI.class
+/Registry.class
+/TrafficLight.class
+/dsf.class
