@@ -17,7 +17,7 @@ public class ShowTrafficLightGUI {
 		btnFindLight = new JButton("Find Traffic Light");
 		btnShowDetails = new JButton("Show Traffic Light Details");
 		btnBack = new JButton("Back to Traffic Light Tab");
-		textAttributes = new JTextField(10);
+		textAttributes = new JTextField(10);/*πρεπει να αποφασισουμε ποια attributes θα εμφανιζονται στο συγκεκριμενο GUI*/
 		
 		panel.add(textAttributes);
 		panel.add(btnFindLight);

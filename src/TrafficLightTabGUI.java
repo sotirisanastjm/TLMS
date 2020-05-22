@@ -10,7 +10,7 @@ public class TrafficLightTabGUI {
 	private JFrame frame;
 	private JPanel panel;
 	private JButton btnSortType, btnSortId, btnShowDetails, btnShowTrafficLight, btnBack;
-	private JList trafficLightList;
+	private JList trafficLightList; 
 	private JScrollPane scrollPane;
 	
 	public TrafficLightTabGUI() {
@@ -22,9 +22,12 @@ public class TrafficLightTabGUI {
 		btnShowDetails = new JButton("Show Details"); /*Να το βαζαμε μονο στο ShowTrafficLightGUI; (για να μπορεις να πας στο ShowDetails μονο εφοσον εισαι στο ShowTrafficLight*/
 		btnShowTrafficLight = new JButton("Show Traffic Light");
 		btnBack = new JButton("Back to Start Menu");
-		trafficLightList = new JList();
-		scrollPane = new JScrollPane(trafficLightList);
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		trafficLightList = new JList(); /*Καναμε λιστα με το σκεπτικο οτι θα γεμισουμε με ολες τις εγγραφες του Registry και θα φαινονται 
+ολα τα φαναρια συνεχως, ομως δεν μπορουμε να τα βαλουμε σαν ολοκληρα αντικειμενα(??) γιατι θα ηταν καλυτερο να βαζαμε καποια βασικα attributes
+να εμφανιζονται ωστε να εχουν νοημα και τα υπολοιπα gui*/
+		scrollPane = new JScrollPane(trafficLightList);/*το βαλαμε για να εμφανιζονται σε περιορισμενο χωρο και να κανει scroll (ο χρηστης)
+για να δει τα φαναρια(αν ειναι οντως πολλα)*/
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);//κανονας για να εμφανιζει μπαρα 
 		
 		panel.add(scrollPane);
 		panel.add(btnSortType);
