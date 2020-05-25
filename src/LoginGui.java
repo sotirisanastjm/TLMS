@@ -86,9 +86,9 @@ public class LoginGui extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				AdminRegistry admin = new AdminRegistry();
-				admin.isAdmin(username.getText(),String.valueOf(password.getPassword()));
-				if(admin.getAdminFlag()) {
+				
+				Main.AdminList.isAdmin(username.getText(),String.valueOf(password.getPassword()));
+				if(Main.AdminList.getAdminFlag()) {
 					f.dispose();
 					new StartMenuGUI();
 				}else JOptionPane.showMessageDialog(f,"There is a problem with your username/password \n"
