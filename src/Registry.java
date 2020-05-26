@@ -9,6 +9,19 @@ public class Registry {
 		this.TrafficLightList = new ArrayList<TrafficLight>();
 		
 	}
+	
+	public void addTrafficLight( TrafficLight aTrafficLight) {
+		TrafficLightList.add(aTrafficLight);
+	}
+	
+	public TrafficLight getTrafficLight(int anId) {
+		for(TrafficLight trafficLight: TrafficLightList) {
+			if(trafficLight.getId() == anId)
+				return trafficLight;
+		}
+		return null;
+	}
+	
 	public ArrayList<TrafficLight> getList() {
 		return TrafficLightList;
 	}

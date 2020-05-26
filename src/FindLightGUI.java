@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 @SuppressWarnings("serial")
@@ -49,7 +50,14 @@ public class FindLightGUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				
+				String stringId = textId.getText();
+				int id = Integer.parseInt(stringId);
+				if(Main.TrafficLightList.getTrafficLight(id) != null) {
+					JOptionPane.showMessageDialog(null, "You found it");
+				}else {
+					JOptionPane.showMessageDialog(null, "Not found");
+				}
+					
 			}
 			
 		});
