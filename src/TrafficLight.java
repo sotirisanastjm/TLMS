@@ -1,4 +1,3 @@
-
 public abstract class TrafficLight {
 	
 	private int id;

@@ -29,8 +29,8 @@ public class SignupGui extends JFrame {
 	public SignupGui() {
 		
 		f = new JFrame();
-		titleicon = new ImageIcon("C:\\Users\\Sotiris\\Documents\\Eclipse_Java\\TLMS\\TLMS2.png");
-		logo = new ImageIcon("C:\\Users\\Sotiris\\Documents\\Eclipse_Java\\TLMS\\TLMS1.png");
+		titleicon = new ImageIcon("TLMS2.png");
+		logo = new ImageIcon("TLMS1.png");
 		panel=new JPanel();
 		logolabel = new JLabel(logo);
 		logolabel.setOpaque(true);

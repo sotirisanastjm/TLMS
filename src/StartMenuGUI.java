@@ -25,10 +25,10 @@ public class StartMenuGUI extends JFrame{
 		panel1=new JPanel();
 		panel=new JPanel();
 		f = new JFrame();
-		logo = new ImageIcon("C:\\Users\\Sotiris\\Documents\\Eclipse_Java\\TLMS\\TLMS1.png");
+		logo = new ImageIcon("TLMS1.png");
 		logolabel = new JLabel(logo);
 		logolabel.setOpaque(true);
-		titleicon=new ImageIcon("C:\\Users\\Sotiris\\Documents\\Eclipse_Java\\TLMS\\TLMS2.png");
+		titleicon=new ImageIcon("TLMS2.png");
 		btn1=new JButton("Find Light");
 		btn2=new JButton("Traffic Light Tab");
 		
@@ -61,6 +61,7 @@ public class StartMenuGUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				new FindLightGUI();
 			}
 			
 		});
@@ -70,7 +71,8 @@ public class StartMenuGUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				
+				new TrafficLightTabGUI();
+				f.dispose();
 			}
 			
 		});

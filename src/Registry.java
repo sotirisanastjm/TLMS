@@ -9,7 +9,9 @@ public class Registry {
 		this.TrafficLightList = new ArrayList<TrafficLight>();
 		
 	}
-	
+	public ArrayList<TrafficLight> getList() {
+		return TrafficLightList;
+	}
 	public void sortType() {
 		
 		TrafficLight temp;
