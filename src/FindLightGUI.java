@@ -31,9 +31,7 @@ public class FindLightGUI extends JFrame{
 		panel.add(textId);
 		panel.add(btnShow);
 		panel.add(btnShowDetails);
-		if(Main.AdminList.getAdminFlag() == true) {
-			panel.add(btnCreate);
-		}
+		panel.add(btnCreate);
 		panel.add(btnBack);
 		
 		frame.setResizable(false);
@@ -49,41 +47,70 @@ public class FindLightGUI extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				
 				String stringId = textId.getText();
 				int id = Integer.parseInt(stringId);
 				if(Main.TrafficLightList.getTrafficLight(id) != null) {
+					//new ShowTraffiLightGUI(Main.TrafficLightList.getTrafficLight(id));
+					//frame.dispose();
 					JOptionPane.showMessageDialog(null, "You found it");
 				}else {
-					JOptionPane.showMessageDialog(null, "Not found");
+					JOptionPane.showMessageDialog(null, "The traffic light you are looking for does not exist.");
 				}
 					
 			}
 			
 		});
+		
 		btnShowDetails.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				
+				String stringId = textId.getText();
+				int id = Integer.parseInt(stringId);
+				if(Main.TrafficLightList.getTrafficLight(id) != null) {
+					//new ShowTraffiLightDetailsGUI(Main.TrafficLightList.getTrafficLight(id));
+					//frame.dispose();
+					JOptionPane.showMessageDialog(null, "You found it");
+				}else {
+					JOptionPane.showMessageDialog(null, "The traffic light you are looking for does not exist.");
+				}
 				
 			}
 			
 		});
+		
 		btnCreate.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent arg0) {	
+				
+				
+				if(Main.AdminList.getAdminFlag() == true) {
+					
+					String stringId = textId.getText();
+					int id = Integer.parseInt(stringId);
+					
+					if(Main.TrafficLightList.getTrafficLight(id) == null) {
+						new CreateGUI(id);
+						frame.dispose();
+					}else {
+						JOptionPane.showMessageDialog(null, "The traffic light you are trying to create already exists.");
+					}	
+				}else {
+					JOptionPane.showMessageDialog(null, "You must sign in as an Administrator to use this button.");
+				}
 				
 			}
 			
 		});
+		
 		btnBack.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				
 				new StartMenuGUI();
 				frame.dispose();
 			}

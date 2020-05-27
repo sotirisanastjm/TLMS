@@ -36,7 +36,7 @@ public class Main {
 		
 		
 		new LoginGui();
-		
+
 	}
 
 }
