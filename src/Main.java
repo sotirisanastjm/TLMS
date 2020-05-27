@@ -35,7 +35,7 @@ public class Main {
 		TrafficLightList.addTrafficLight(tl2);
 		
 		new LoginGui();
-		
+
 	}
 
 }
