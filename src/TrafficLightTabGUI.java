@@ -1,5 +1,6 @@
 
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,6 +39,7 @@ public class TrafficLightTabGUI {
 		btnShowTrafficLight = new JButton("Show Traffic Light");
 		btnBack = new JButton("Back to Start Menu");
 		trafficLightList = new JList(list);
+		trafficLightList.setPreferredSize(new Dimension(700, 400));
 		trafficLightList.setCellRenderer(new TrafficRenderer());/*ÎšÎ±Î½Î±Î¼Îµ Î»Î¹ÏƒÏ„Î± Î¼Îµ Ï„Î¿ ÏƒÎºÎµÏ€Ï„Î¹ÎºÎ¿ Î¿Ï„Î¹ Î¸Î± Î³ÎµÎ¼Î¹ÏƒÎ¿Ï…Î¼Îµ Î¼Îµ Î¿Î»ÎµÏ‚ Ï„Î¹Ï‚ ÎµÎ³Î³Ï�Î±Ï†ÎµÏ‚ Ï„Î¿Ï… Registry ÎºÎ±Î¹ Î¸Î± Ï†Î±Î¹Î½Î¿Î½Ï„Î±Î¹ 
 Î¿Î»Î± Ï„Î± Ï†Î±Î½Î±Ï�Î¹Î± ÏƒÏ…Î½ÎµÏ‡Ï‰Ï‚, Î¿Î¼Ï‰Ï‚ Î´ÎµÎ½ Î¼Ï€Î¿Ï�Î¿Ï…Î¼Îµ Î½Î± Ï„Î± Î²Î±Î»Î¿Ï…Î¼Îµ ÏƒÎ±Î½ Î¿Î»Î¿ÎºÎ»Î·Ï�Î± Î±Î½Ï„Î¹ÎºÎµÎ¹Î¼ÎµÎ½Î±(??) Î³Î¹Î±Ï„Î¹ Î¸Î± Î·Ï„Î±Î½ ÎºÎ±Î»Ï…Ï„ÎµÏ�Î¿ Î½Î± Î²Î±Î¶Î±Î¼Îµ ÎºÎ±Ï€Î¿Î¹Î± Î²Î±ÏƒÎ¹ÎºÎ± attributes
 Î½Î± ÎµÎ¼Ï†Î±Î½Î¹Î¶Î¿Î½Ï„Î±Î¹ Ï‰ÏƒÏ„Îµ Î½Î± ÎµÏ‡Î¿Ï…Î½ Î½Î¿Î·Î¼Î± ÎºÎ±Î¹ Ï„Î± Ï…Ï€Î¿Î»Î¿Î¹Ï€Î± gui*/
