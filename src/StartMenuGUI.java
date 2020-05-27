@@ -62,6 +62,7 @@ public class StartMenuGUI extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				new FindLightGUI();
+				f.dispose();
 			}
 			
 		});
