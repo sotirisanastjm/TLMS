@@ -81,7 +81,19 @@ public class LoginGui extends JFrame{
 		f.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		f.setResizable(false);
 		
-
+		password.addActionListener(new AbstractAction() {
+			 @Override
+			    public void actionPerformed(ActionEvent e) {
+				 Main.AdminList.isAdmin(username.getText(),String.valueOf(password.getPassword()));
+					if(Main.AdminList.getAdminFlag()) {
+						f.dispose();
+						new StartMenuGUI();
+					}else JOptionPane.showMessageDialog(f,"There is a problem with your username/password \n"
+							+ "Please try again");
+					
+				}			    
+		});
+				
 		btn1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {

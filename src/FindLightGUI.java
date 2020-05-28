@@ -26,12 +26,13 @@ public class FindLightGUI extends JFrame{
 		btnShowDetails = new JButton("Show Details");
 		btnCreate = new JButton("Create");
 		btnBack = new JButton("Back to Start Menu");
-		textId = new JTextField("insert Id");
+		textId = new JTextField("insert Id",10);
 		
 		panel.add(textId);
 		panel.add(btnShow);
 		panel.add(btnShowDetails);
-		panel.add(btnCreate);
+		if (Main.AdminList.getAdminFlag())
+			panel.add(btnCreate);
 		panel.add(btnBack);
 		
 		frame.setResizable(false);
@@ -49,17 +50,19 @@ public class FindLightGUI extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String stringId = textId.getText();
-				int id = Integer.parseInt(stringId);
-				if(Main.TrafficLightList.getTrafficLight(id) != null) {
-					//new ShowTraffiLightGUI(Main.TrafficLightList.getTrafficLight(id));
-					//frame.dispose();
-					JOptionPane.showMessageDialog(null, "You found it");
-				}else {
+				if(stringId != null && !stringId.equals("insert Id")) {
+					int id = Integer.parseInt(stringId);
+					if(Main.TrafficLightList.getTrafficLight(id) != null) {
+						new ShowTrafficLightGUI(Main.TrafficLightList.getTrafficLight(id));
+						frame.dispose();
+						JOptionPane.showMessageDialog(null, "You found it");
+					}else {
 					JOptionPane.showMessageDialog(null, "The traffic light you are looking for does not exist.");
+					}					
+				}else {
+					JOptionPane.showMessageDialog(null, "Please type a valid ID");
 				}
-					
 			}
-			
 		});
 		
 		btnShowDetails.addActionListener(new ActionListener() {
@@ -68,15 +71,19 @@ public class FindLightGUI extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String stringId = textId.getText();
-				int id = Integer.parseInt(stringId);
-				if(Main.TrafficLightList.getTrafficLight(id) != null) {
-					//new ShowTraffiLightDetailsGUI(Main.TrafficLightList.getTrafficLight(id));
-					//frame.dispose();
-					JOptionPane.showMessageDialog(null, "You found it");
-				}else {
-					JOptionPane.showMessageDialog(null, "The traffic light you are looking for does not exist.");
-				}
+				if(stringId != null && !stringId.equals("insert Id")) {
+					int id = Integer.parseInt(stringId);
+					if(Main.TrafficLightList.getTrafficLight(id) != null) {
+						new ShowTrafficLightDetailsGUI(Main.TrafficLightList.getTrafficLight(id));
+						frame.dispose();
+						JOptionPane.showMessageDialog(null, "You found it");
+					}else {
+						JOptionPane.showMessageDialog(null, "The traffic light you are looking for does not exist.");
+					}
 				
+				}else {
+					JOptionPane.showMessageDialog(null, "Please type a valid ID");
+				}
 			}
 			
 		});

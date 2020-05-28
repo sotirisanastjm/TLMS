@@ -1,5 +1,25 @@
 public abstract class TrafficLight {
 	
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public void setStreetNumber(int streetNumber) {
+		this.streetNumber = streetNumber;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
 	private int id;
 	private int type;
 	private String street;
