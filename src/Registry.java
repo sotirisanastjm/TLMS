@@ -116,17 +116,17 @@ public class Registry {
 		return TrafficLightNext;
 	}
 	
-	public void create(int id, int type, String street, int streetNumber, String color) {
+	public void create(int id, int type, String street, int streetNumber, String color, boolean sign, boolean crosswalk) {
 		
 		TrafficLight newTrafficLight = null;
 		if(type == 0) {
-			newTrafficLight = new PedestrianTrafficLight(id, 0, street, streetNumber, color);
+			newTrafficLight = new PedestrianTrafficLight(id, 0, street, streetNumber, color, sign, crosswalk);
 		} else if(type == 1) {
-			newTrafficLight = new ThreeColorTrafficLight(id, 1, street, streetNumber, color);
+			newTrafficLight = new ThreeColorTrafficLight(id, 1, street, streetNumber, color, sign, crosswalk);
 		} else if(type == 2) {
-			newTrafficLight = new SingleColorTrafficLight(id, 2, street, streetNumber, color);
+			newTrafficLight = new SingleColorTrafficLight(id, 2, street, streetNumber, color, sign, crosswalk);
 		} else if(type == 3) {
-			newTrafficLight = new BicycleTrafficLight(id, 3, street, streetNumber, color);
+			newTrafficLight = new BicycleTrafficLight(id, 3, street, streetNumber, color, sign, crosswalk);
 		}
 		TrafficLightList.add(newTrafficLight);
 		
@@ -148,13 +148,13 @@ public class Registry {
 		TrafficLight newTrafficLight = null;
 		
 		if(newType == 0) {
-			newTrafficLight = new PedestrianTrafficLight(currentTrafficLight.getId(), 0, currentTrafficLight.getStreet(), currentTrafficLight.getStreetNumber(), currentTrafficLight.getColor());
+			newTrafficLight = new PedestrianTrafficLight(currentTrafficLight.getId(), 0, currentTrafficLight.getStreet(), currentTrafficLight.getStreetNumber(), currentTrafficLight.getColor(), currentTrafficLight.isSign(), currentTrafficLight.isCrosswalk());
 		} else if(newType == 1) {
-			newTrafficLight = new ThreeColorTrafficLight(currentTrafficLight.getId(), 1, currentTrafficLight.getStreet(), currentTrafficLight.getStreetNumber(), currentTrafficLight.getColor());
+			newTrafficLight = new ThreeColorTrafficLight(currentTrafficLight.getId(), 1, currentTrafficLight.getStreet(), currentTrafficLight.getStreetNumber(), currentTrafficLight.getColor(), currentTrafficLight.isSign(), currentTrafficLight.isCrosswalk());
 		} else if(newType == 2) {
-			newTrafficLight = new SingleColorTrafficLight(currentTrafficLight.getId(), 2, currentTrafficLight.getStreet(), currentTrafficLight.getStreetNumber(), currentTrafficLight.getColor());
+			newTrafficLight = new SingleColorTrafficLight(currentTrafficLight.getId(), 2, currentTrafficLight.getStreet(), currentTrafficLight.getStreetNumber(), currentTrafficLight.getColor(), currentTrafficLight.isSign(), currentTrafficLight.isCrosswalk());
 		} else if(newType == 3) {
-			newTrafficLight = new BicycleTrafficLight(currentTrafficLight.getId(), 3, currentTrafficLight.getStreet(), currentTrafficLight.getStreetNumber(), currentTrafficLight.getColor());
+			newTrafficLight = new BicycleTrafficLight(currentTrafficLight.getId(), 3, currentTrafficLight.getStreet(), currentTrafficLight.getStreetNumber(), currentTrafficLight.getColor(), currentTrafficLight.isSign(), currentTrafficLight.isCrosswalk());
 		}
 		
 		for(int i=0;i<TrafficLightList.size();i++) {

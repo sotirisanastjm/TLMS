@@ -25,17 +25,26 @@ public abstract class TrafficLight {
 	private String street;
 	private int streetNumber;
 	private String color;
-	
-	public TrafficLight(int id, int type, String street, int streetNumber, String color) { /*το color ενδεικτικα*/
+	private boolean sign, crosswalk;
+	public TrafficLight(int id, int type, String street, int streetNumber, String color, boolean sign, boolean crosswalk) { /*το color ενδεικτικα*/
 		
 		this.id = id;
 		this.type = type;
 		this.street = street;
 		this.streetNumber = streetNumber;
 		this.color = color;
-			
+		this.crosswalk = crosswalk;
+		this.sign = sign;
 	}
 	
+	public boolean isSign() {
+		return sign;
+	}
+
+	public boolean isCrosswalk() {
+		return crosswalk;
+	}
+
 	public int getId() {
 		return id;
 	}

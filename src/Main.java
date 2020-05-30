@@ -7,29 +7,29 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		TrafficLight tl1 =new ThreeColorTrafficLight(100, 1, "Tsimiski", 5, "red");
-		TrafficLight tl2 =new ThreeColorTrafficLight(101, 1, "Tsimiski", 7, "red");
-		TrafficLight gi1 =new ThreeColorTrafficLight(102, 1, "Aristotelous", 1, "green");//nai gia osous thn eidan GTA sthn aristotelous na pathsoyn pezous
-		TrafficLight gi2 =new ThreeColorTrafficLight(103, 1, "Aristotelous", 2, "green");
-		TrafficLight gi3 =new ThreeColorTrafficLight(104, 1, "Aristotelous", 3, "green");
-		TrafficLight gi4 =new ThreeColorTrafficLight(105, 1, "Aristotelous", 4, "green");
-		TrafficLight gi5 =new ThreeColorTrafficLight(106, 1, "Aristotelous", 5, "green");
-		TrafficLight gg1 =new PedestrianTrafficLight(107, 0, "Ethnikhs amynhs", 0, "red");
-		TrafficLight gg2 =new PedestrianTrafficLight(108, 0, "Ethnikhs amynhs", 0, "red");
-		TrafficLight gg3 =new PedestrianTrafficLight(109, 0, "Ethnikhs amynhs", 0, "red");
-		TrafficLight gg4 =new PedestrianTrafficLight(110, 0, "Ethnikhs amynhs", 0, "red");
-		TrafficLight gg5 =new PedestrianTrafficLight(111, 0, "Ethnikhs amynhs", 0, "red");
-		TrafficLight gh1 =new BicycleTrafficLight(112, 3, "Ethnikhs amynhs", 0, "red");
-		TrafficLight gh2 =new BicycleTrafficLight(113, 3, "Ethnikhs amynhs", 0, "red");
-		TrafficLight gh3 =new BicycleTrafficLight(114, 3, "Ethnikhs amynhs", 0, "red");
-		TrafficLight gh4 =new BicycleTrafficLight(115, 3, "Ethnikhs amynhs", 0, "red");
-		TrafficLight gh5 =new BicycleTrafficLight(116, 3, "Ethnikhs amynhs", 0, "red");
-		TrafficLight gh6 =new BicycleTrafficLight(117, 3, "Ethnikhs amynhs", 0, "red");
-		TrafficLight gj1 =new SingleColorTrafficLight(118, 2, "Ethnikhs amynhs", 0, "yellow");
-		TrafficLight gj2 =new SingleColorTrafficLight(119, 2, "Ethnikhs amynhs", 0, "yellow");
-		TrafficLight gj3 =new SingleColorTrafficLight(120, 2, "Ethnikhs amynhs", 0, "yellow");
-		TrafficLight gj4 =new SingleColorTrafficLight(121, 2, "Ethnikhs amynhs", 0, "yellow");
-		TrafficLight gj5 =new SingleColorTrafficLight(122, 2, "Ethnikhs amynhs", 0, "yellow");
+		TrafficLight tl1 =new ThreeColorTrafficLight(100, 1, "Tsimiski", 5, "red", false, false);
+		TrafficLight tl2 =new ThreeColorTrafficLight(101, 1, "Tsimiski", 7, "red", true, false);
+		TrafficLight gi1 =new ThreeColorTrafficLight(102, 1, "Aristotelous", 1, "green", false, false);//nai gia osous thn eidan GTA sthn aristotelous na pathsoyn pezous
+		TrafficLight gi2 =new ThreeColorTrafficLight(103, 1, "Aristotelous", 2, "green", false, false);
+		TrafficLight gi3 =new ThreeColorTrafficLight(104, 1, "Aristotelous", 3, "green", false, false);
+		TrafficLight gi4 =new ThreeColorTrafficLight(105, 1, "Aristotelous", 4, "green", false, false);
+		TrafficLight gi5 =new ThreeColorTrafficLight(106, 1, "Aristotelous", 5, "green", false, false);
+		TrafficLight gg1 =new PedestrianTrafficLight(107, 0, "Ethnikhs amynhs", 0, "red", false, false);
+		TrafficLight gg2 =new PedestrianTrafficLight(108, 0, "Ethnikhs amynhs", 0, "red", false, false);
+		TrafficLight gg3 =new PedestrianTrafficLight(109, 0, "Ethnikhs amynhs", 0, "red", false, false);
+		TrafficLight gg4 =new PedestrianTrafficLight(110, 0, "Ethnikhs amynhs", 0, "red", false, false);
+		TrafficLight gg5 =new PedestrianTrafficLight(111, 0, "Ethnikhs amynhs", 0, "red", false, false);
+		TrafficLight gh1 =new BicycleTrafficLight(112, 3, "Ethnikhs amynhs", 0, "red", false, false);
+		TrafficLight gh2 =new BicycleTrafficLight(113, 3, "Ethnikhs amynhs", 0, "red", false, false);
+		TrafficLight gh3 =new BicycleTrafficLight(114, 3, "Ethnikhs amynhs", 0, "red", false, false);
+		TrafficLight gh4 =new BicycleTrafficLight(115, 3, "Ethnikhs amynhs", 0, "red", false, false);
+		TrafficLight gh5 =new BicycleTrafficLight(116, 3, "Ethnikhs amynhs", 0, "red", false, false);
+		TrafficLight gh6 =new BicycleTrafficLight(117, 3, "Ethnikhs amynhs", 0, "red", false, false);
+		TrafficLight gj1 =new SingleColorTrafficLight(118, 2, "Ethnikhs amynhs", 0, "yellow", false, false);
+		TrafficLight gj2 =new SingleColorTrafficLight(119, 2, "Ethnikhs amynhs", 0, "yellow", false, false);
+		TrafficLight gj3 =new SingleColorTrafficLight(120, 2, "Ethnikhs amynhs", 0, "yellow", false, false);
+		TrafficLight gj4 =new SingleColorTrafficLight(121, 2, "Ethnikhs amynhs", 0, "yellow", false, false);
+		TrafficLight gj5 =new SingleColorTrafficLight(122, 2, "Ethnikhs amynhs", 0, "yellow", false, false);
 		
 		TrafficLightList.addTrafficLight(tl1);
 		TrafficLightList.addTrafficLight(tl2);

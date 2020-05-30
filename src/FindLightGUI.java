@@ -54,7 +54,6 @@ public class FindLightGUI extends JFrame{
 					if(Main.TrafficLightList.getTrafficLight(id) != null) {
 						new ShowTrafficLightGUI(Main.TrafficLightList.getTrafficLight(id));
 						frame.dispose();
-						JOptionPane.showMessageDialog(null, "You found it");
 					}else {
 					JOptionPane.showMessageDialog(null, "The traffic light you are looking for does not exist.");
 					}					
@@ -75,7 +74,6 @@ public class FindLightGUI extends JFrame{
 					if(Main.TrafficLightList.getTrafficLight(id) != null) {
 						new ShowTrafficLightDetailsGUI(Main.TrafficLightList.getTrafficLight(id));
 						frame.dispose();
-						JOptionPane.showMessageDialog(null, "You found it");
 					}else {
 						JOptionPane.showMessageDialog(null, "The traffic light you are looking for does not exist.");
 					}
