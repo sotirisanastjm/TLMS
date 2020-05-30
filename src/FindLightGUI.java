@@ -31,8 +31,7 @@ public class FindLightGUI extends JFrame{
 		panel.add(textId);
 		panel.add(btnShow);
 		panel.add(btnShowDetails);
-		if (Main.AdminList.getAdminFlag())
-			panel.add(btnCreate);
+		panel.add(btnCreate);
 		panel.add(btnBack);
 		
 		frame.setResizable(false);
