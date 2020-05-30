@@ -22,8 +22,11 @@ public class TrafficLightTabGUI {
 	@SuppressWarnings("unchecked")
 	public TrafficLightTabGUI() {
 		
+		
+		
 		DefaultListModel list= new DefaultListModel();
-		//list.addElement(Main.TrafficLightList[0]);
+		DefaultListModel list1= new DefaultListModel();
+		DefaultListModel list2= new DefaultListModel();
 		for (int i = 0; i < Main.TrafficLightList.getList().size(); i++)
 		{
 		    list.addElement(Main.TrafficLightList.getList().get(i));
@@ -67,7 +70,12 @@ public class TrafficLightTabGUI {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				
+				Main.TrafficLightList.sortType();
+				for (int i = 0; i < Main.TrafficLightList.getList().size(); i++)
+				{
+				    list1.addElement(Main.TrafficLightList.getList().get(i));
+				}
+				trafficLightList.setModel(list1);
 			}
 			
 		});
@@ -76,7 +84,12 @@ public class TrafficLightTabGUI {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				
+				Main.TrafficLightList.sortId();
+				for (int i = 0; i <Main.TrafficLightList.getList().size(); i++)
+				{
+				    list2.addElement(Main.TrafficLightList.getList().get(i));
+				}
+				trafficLightList.setModel(list2);
 			}
 			
 		});

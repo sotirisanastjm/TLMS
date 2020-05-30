@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 
@@ -20,43 +21,23 @@ public class EditDetailsGUI extends JFrame{
 	private JLabel label;
 
 	
-	public EditDetailsGUI(int id){
-		int num=0;
-		for(int i=0;i<Main.TrafficLightList.getList().size();i++) {
-			if(id==Main.TrafficLightList.getList().get(i).getId()) {
-				num=i;
-			}
-		}
-		int prev=0;
-		int next=0;
-		int min=1000,max=-1;
+	public EditDetailsGUI(TrafficLight light){
 		
-		int streetnumb= Main.TrafficLightList.getList().get(num).getStreetNumber();
-		String street = Main.TrafficLightList.getList().get(num).getStreet();
-		
-		for(int i=0;i<Main.TrafficLightList.getList().size();i++) {
-			if(Main.TrafficLightList.getList().get(i).getStreet().equals(street)&&streetnumb<Main.TrafficLightList.getList().get(i).getStreetNumber()) {
-				if(min>Main.TrafficLightList.getList().get(i).getStreetNumber()) {
-					min=Main.TrafficLightList.getList().get(i).getStreetNumber();
-					next=i;
-				}
-			}
-			if(Main.TrafficLightList.getList().get(i).getStreet().equals(street)&&streetnumb>Main.TrafficLightList.getList().get(i).getStreetNumber()) {
-				if(max<Main.TrafficLightList.getList().get(i).getStreetNumber()) {
-					max=Main.TrafficLightList.getList().get(i).getStreetNumber();
-					prev=i;
-				}
-			}
-		}
-		
-		
+		int num=0,id=0;
+		id=light.getId();
+		ArrayList<TrafficLight> TrafficLightNext = new ArrayList<>(Main.TrafficLightList.findNext(id));
+		ArrayList<TrafficLight> TrafficLightPrev = new ArrayList<>(Main.TrafficLightList.findPrev(id));
 		
 		DefaultListModel list1= new DefaultListModel();
-		list1.addElement(Main.TrafficLightList.getList().get(prev));
+		for(int i=0;i<TrafficLightNext.size();i++) {
+			list1.addElement(TrafficLightNext.get(i));
+		}
 		DefaultListModel list2= new DefaultListModel();
-		list2.addElement(Main.TrafficLightList.getList().get(next));
+		for(int i=0;i<TrafficLightPrev.size();i++) {
+			list2.addElement(TrafficLightPrev.get(i));
+		}
 		DefaultListModel list3= new DefaultListModel();
-		list3.addElement(Main.TrafficLightList.getList().get(num));
+		list3.addElement(light);
 		
 		label=new JLabel("Current Traffic Light");
 		f = new JFrame();
@@ -103,7 +84,7 @@ public class EditDetailsGUI extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				label.setText("The Previous Traffic Light");
-				list.setModel(list1);
+				list.setModel(list2);
 				
 			}
 			
@@ -114,7 +95,7 @@ public class EditDetailsGUI extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				label.setText("The Next Traffic Light");
-				list.setModel(list2);
+				list.setModel(list1);
 			}
 			
 		});
@@ -123,7 +104,7 @@ public class EditDetailsGUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				new ShowDetailsGUI();
+				new ShowTrafficLightDetailsGUI(light);
 				f.dispose();
 			}
 			
