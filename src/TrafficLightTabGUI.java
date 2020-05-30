@@ -25,8 +25,7 @@ public class TrafficLightTabGUI {
 		
 		
 		DefaultListModel list= new DefaultListModel();
-		DefaultListModel list1= new DefaultListModel();
-		DefaultListModel list2= new DefaultListModel();
+		
 		for (int i = 0; i < Main.TrafficLightList.getList().size(); i++)
 		{
 		    list.addElement(Main.TrafficLightList.getList().get(i));
@@ -71,11 +70,12 @@ public class TrafficLightTabGUI {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				Main.TrafficLightList.sortType();
+				list.removeAllElements();
 				for (int i = 0; i < Main.TrafficLightList.getList().size(); i++)
 				{
-				    list1.addElement(Main.TrafficLightList.getList().get(i));
+				    list.addElement(Main.TrafficLightList.getList().get(i));
 				}
-				trafficLightList.setModel(list1);
+				trafficLightList.setModel(list);
 			}
 			
 		});
@@ -85,11 +85,12 @@ public class TrafficLightTabGUI {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				Main.TrafficLightList.sortId();
+				list.removeAllElements();
 				for (int i = 0; i <Main.TrafficLightList.getList().size(); i++)
 				{
-				    list2.addElement(Main.TrafficLightList.getList().get(i));
+				    list.addElement(Main.TrafficLightList.getList().get(i));
 				}
-				trafficLightList.setModel(list2);
+				trafficLightList.setModel(list);
 			}
 			
 		});
