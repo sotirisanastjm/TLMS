@@ -8,17 +8,22 @@ import javax.swing.*;
 public class ShowTrafficLightDetailsGUI {
 	
 	private final static String newline = "\n";
+	private TrafficLight currentTrafficLight;
 	
 	public ShowTrafficLightDetailsGUI(TrafficLight aTrafficLight) {
+		
+		int currentId = aTrafficLight.getId();
+		currentTrafficLight = Main.TrafficLightList.getTrafficLight(currentId);
 		
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
 		JPanel buttonsPanel = new JPanel();
 		JButton btnBack = new JButton("Back to Info");
 		JButton btnEdit = new JButton("Edit Details");
+		JButton btnChangeType_Delete = new JButton("Change Type or Delete");
 		JLabel label = new JLabel("Details");
 		JLabel idLabel = new JLabel("ID:");
-		JTextField id = new JTextField(String.valueOf(aTrafficLight.getId()));
+		JTextField id = new JTextField(String.valueOf(currentTrafficLight.getId()));
 		
 		JTextArea detailsArea = new JTextArea(7, 40);
 		detailsArea.setEditable(false);
@@ -29,22 +34,22 @@ public class ShowTrafficLightDetailsGUI {
 		String text="This is a ";
 		String text2="It is located at ";
 		String text3="The Traffic Light has the color ";
-		if(aTrafficLight.getType()==0) {
+		if(currentTrafficLight.getType()==0) {
 			text1="Pedestrian Traffic Light";
-		}else if(aTrafficLight.getType()==1) {
+		}else if(currentTrafficLight.getType()==1) {
 			text1="Three Color Traffic Light";
-		}else if(aTrafficLight.getType()==2) {
+		}else if(currentTrafficLight.getType()==2) {
 			text1="Single Color Traffic Light";
-		}else if(aTrafficLight.getType()==3) {
+		}else if(currentTrafficLight.getType()==3) {
 			text1="Bicycle Traffic Light";
 		}
-		if(aTrafficLight.isSign())
+		if(currentTrafficLight.isSign())
 			text4 = "It has a Sign";
-		if(aTrafficLight.isCrosswalk())
+		if(currentTrafficLight.isCrosswalk())
 			text5="It has a Crosswalk";
 		detailsArea.append(text + text1 + newline);
-		detailsArea.append(text2 + aTrafficLight.getStreet() + " " + String.valueOf(aTrafficLight.getStreetNumber()) + newline);
-		detailsArea.append(text3 + aTrafficLight.getColor() + newline);
+		detailsArea.append(text2 + currentTrafficLight.getStreet() + " " + String.valueOf(currentTrafficLight.getStreetNumber()) + newline);
+		detailsArea.append(text3 + currentTrafficLight.getColor() + newline);
 		detailsArea.append(text4 + newline);
 		detailsArea.append(text5 + newline);
 		
@@ -55,6 +60,7 @@ public class ShowTrafficLightDetailsGUI {
 		
 		buttonsPanel.add(btnBack);
 		buttonsPanel.add(btnEdit);
+		buttonsPanel.add(btnChangeType_Delete);
 		
 		frame.getContentPane().add(BorderLayout.SOUTH, buttonsPanel);
         
@@ -69,7 +75,7 @@ public class ShowTrafficLightDetailsGUI {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				new ShowTrafficLightGUI(aTrafficLight);
+				new ShowTrafficLightGUI(currentTrafficLight);
 				frame.dispose();
 			}});
 		
@@ -77,8 +83,22 @@ public class ShowTrafficLightDetailsGUI {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				new EditDetailsGUI(aTrafficLight);
+				new EditDetailsGUI(currentTrafficLight);
 				frame.dispose();		
+			}});
+		
+		btnChangeType_Delete.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if(Main.AdminList.getAdminFlag() == true) {
+					new ChangeType_DeleteGUI(currentTrafficLight);
+					frame.dispose();
+				}else {
+					JOptionPane.showMessageDialog(null, "You must sign in as an Administrator to use this button.");
+				}
+						
 			}});
 			
 	}

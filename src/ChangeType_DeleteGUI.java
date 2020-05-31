@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -16,8 +17,12 @@ public class ChangeType_DeleteGUI extends JFrame{
 	private JTextField textNewType;
 	private ImageIcon titleicon;
 	private TrafficLight currentTrafficLight;
+	private JLabel labelType0, labelType1, labelType2, labelType3;
+	private boolean isTrafficLightDeleted;
 	
 	public ChangeType_DeleteGUI(TrafficLight aTrafficLight) {
+		
+		isTrafficLightDeleted = false;
 		
 		currentTrafficLight = aTrafficLight;
 		titleicon=new ImageIcon("TLMS2.png");
@@ -27,11 +32,19 @@ public class ChangeType_DeleteGUI extends JFrame{
 		btnChangeType = new JButton("Change Traffic Light Type");
 		btnBack = new JButton("Back to Show Details");
 		textNewType = new JTextField("insert new Type", 10);
+		labelType0 = new JLabel("0: Pedestrian Traffic Light.");
+		labelType1 = new JLabel("1: Threecolor Traffic Light.");
+		labelType2 = new JLabel("2: Singlecolor Traffic Light.");
+		labelType3 = new JLabel("3: Bicycle Traffic Light.");
 		
 		panel.add(textNewType);
 		panel.add(btnChangeType);
 		panel.add(btnDelete);
 		panel.add(btnBack);
+		panel.add(labelType0);
+		panel.add(labelType1);
+		panel.add(labelType2);
+		panel.add(labelType3);
 		
 		frame.setContentPane(panel);
 		frame.setVisible(true);
@@ -44,8 +57,15 @@ public class ChangeType_DeleteGUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
-				//new ShowTrafficLightDetailsGUI();
-				frame.dispose();
+				if(!isTrafficLightDeleted) {
+					new ShowTrafficLightDetailsGUI(currentTrafficLight);
+					frame.dispose();
+				}else {
+					new FindLightGUI();
+					frame.dispose();
+					JOptionPane.showMessageDialog(null, "You were redirected to Find Light screen since you deleted the current Traffic Light.");	
+				}
+				
 			}
 		});
 		
@@ -83,6 +103,7 @@ public class ChangeType_DeleteGUI extends JFrame{
 				int currentId = currentTrafficLight.getId();
 				
 				if(Main.TrafficLightList.getTrafficLight(currentId) != null) {
+					isTrafficLightDeleted = true;
 					Main.TrafficLightList.delete(currentId);
 					JOptionPane.showMessageDialog(null, "You succesfully deleted the Traffic Light.");
 				}else {

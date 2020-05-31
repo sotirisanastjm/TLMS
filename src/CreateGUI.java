@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -21,7 +22,10 @@ public class CreateGUI extends JFrame{
 	private ImageIcon titleicon;
 	private JCheckBox sign, crosswalk;
 	private boolean signChecked,crosswalkChecked;
+	private JLabel labelType0, labelType1, labelType2, labelType3;
+	
 	public CreateGUI(int id) {
+		
 		String signString, crosswalkString;
 		titleicon=new ImageIcon("TLMS2.png");
 		frame = new JFrame();
@@ -31,6 +35,11 @@ public class CreateGUI extends JFrame{
 		textType = new JTextField("insert type");
 		textStreet = new JTextField("insert street");
 		textNumber = new JTextField("insert street number");
+		labelType0 = new JLabel("0: Pedestrian Traffic Light.");
+		labelType1 = new JLabel("1: Threecolor Traffic Light.");
+		labelType2 = new JLabel("2: Singlecolor Traffic Light.");
+		labelType3 = new JLabel("3: Bicycle Traffic Light.");
+		
 		signString = "Sign";
 		crosswalkString = "Crosswalk";
 		Choice ColorChooser = new Choice();
@@ -49,6 +58,10 @@ public class CreateGUI extends JFrame{
 		panel.add(crosswalk);
 		panel.add(btnCreate);
 		panel.add(btnBack);
+		panel.add(labelType0);
+		panel.add(labelType1);
+		panel.add(labelType2);
+		panel.add(labelType3);
 		
 		frame.setResizable(false);
 		frame.setLocation(600,300);

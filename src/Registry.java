@@ -152,7 +152,7 @@ public class Registry {
 		} else if(newType == 1) {
 			newTrafficLight = new ThreeColorTrafficLight(currentTrafficLight.getId(), 1, currentTrafficLight.getStreet(), currentTrafficLight.getStreetNumber(), currentTrafficLight.getColor(), currentTrafficLight.isSign(), currentTrafficLight.isCrosswalk());
 		} else if(newType == 2) {
-			newTrafficLight = new SingleColorTrafficLight(currentTrafficLight.getId(), 2, currentTrafficLight.getStreet(), currentTrafficLight.getStreetNumber(), currentTrafficLight.getColor(), currentTrafficLight.isSign(), currentTrafficLight.isCrosswalk());
+			newTrafficLight = new SingleColorTrafficLight(currentTrafficLight.getId(), 2, currentTrafficLight.getStreet(), currentTrafficLight.getStreetNumber(), "yellow", currentTrafficLight.isSign(), currentTrafficLight.isCrosswalk());
 		} else if(newType == 3) {
 			newTrafficLight = new BicycleTrafficLight(currentTrafficLight.getId(), 3, currentTrafficLight.getStreet(), currentTrafficLight.getStreetNumber(), currentTrafficLight.getColor(), currentTrafficLight.isSign(), currentTrafficLight.isCrosswalk());
 		}
