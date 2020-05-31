@@ -29,15 +29,7 @@ public class EditDetailsGUI extends JFrame{
 		ArrayList<TrafficLight> TrafficLightPrev = new ArrayList<>(Main.TrafficLightList.findPrev(id));
 		
 		DefaultListModel list1= new DefaultListModel();
-		for(int i=0;i<TrafficLightNext.size();i++) {
-			list1.addElement(TrafficLightNext.get(i));
-		}
-		DefaultListModel list2= new DefaultListModel();
-		for(int i=0;i<TrafficLightPrev.size();i++) {
-			list2.addElement(TrafficLightPrev.get(i));
-		}
-		DefaultListModel list3= new DefaultListModel();
-		list3.addElement(light);
+		list1.addElement(light);
 		
 		label=new JLabel("Current Traffic Light");
 		f = new JFrame();
@@ -47,7 +39,7 @@ public class EditDetailsGUI extends JFrame{
 		btnback= new JButton("Back to Show Details");
 		btnstartmenu= new JButton("Back to Start Menu");
 		titleicon=new ImageIcon("TLMS2.png");
-		list = new JList(list3);
+		list = new JList(list1);
 		list.setPreferredSize(new Dimension(700,400));
 		list.setCellRenderer(new TrafficRenderer());
 		scrollpane = new JScrollPane(list);
@@ -83,9 +75,14 @@ public class EditDetailsGUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				label.setText("The Previous Traffic Light");
-				list.setModel(list2);
-				
+				if(TrafficLightPrev.size()!=0) {
+					list1.removeAllElements();
+					for(int i=0;i<TrafficLightPrev.size();i++) {
+						list1.addElement(TrafficLightPrev.get(i));
+					}
+					label.setText("The Previous Traffic Light");
+					list.setModel(list1);
+				}else JOptionPane.showMessageDialog(f,"There are no Previous Traffic Lights");
 			}
 			
 		});
@@ -94,8 +91,14 @@ public class EditDetailsGUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				label.setText("The Next Traffic Light");
-				list.setModel(list1);
+				if(TrafficLightNext.size()!=0) {
+					list1.removeAllElements();
+					for(int i=0;i<TrafficLightNext.size();i++) {
+						list1.addElement(TrafficLightNext.get(i));
+					}
+					label.setText("The Next Traffic Light");
+					list.setModel(list1);
+				}else JOptionPane.showMessageDialog(f,"There are no Next Traffic Lights");
 			}
 			
 		});
