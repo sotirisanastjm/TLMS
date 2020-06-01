@@ -56,7 +56,7 @@ public class Main {
 		TrafficLightList.addTrafficLight(gj5);
 		
 		
-		
+
 		new LoginGui();
 
 	}

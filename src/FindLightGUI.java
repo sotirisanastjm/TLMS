@@ -49,17 +49,21 @@ public class FindLightGUI extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String stringId = textId.getText();
-				if(stringId != null && !stringId.equals("insert Id")) {
-					int id = Integer.parseInt(stringId);
-					if(Main.TrafficLightList.getTrafficLight(id) != null) {
-						new ShowTrafficLightGUI(Main.TrafficLightList.getTrafficLight(id));
-						frame.dispose();
+				if(stringId.matches("[0-9]+")) {
+					if(stringId != null && !stringId.equals("insert Id")) {
+						int id = Integer.parseInt(stringId);
+						if(Main.TrafficLightList.getTrafficLight(id) != null) {
+							new ShowTrafficLightGUI(Main.TrafficLightList.getTrafficLight(id));
+							frame.dispose();
+						}else {
+						JOptionPane.showMessageDialog(null, "The traffic light you are looking for does not exist.");
+						}					
 					}else {
-					JOptionPane.showMessageDialog(null, "The traffic light you are looking for does not exist.");
-					}					
-				}else {
-					JOptionPane.showMessageDialog(null, "Please type a valid ID");
-				}
+						JOptionPane.showMessageDialog(null, "Please type a valid ID");
+					}
+				}else JOptionPane.showMessageDialog(null,"You must put only numbers\n"
+						+ "Please try again");
+				
 			}
 		});
 		
@@ -69,18 +73,22 @@ public class FindLightGUI extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String stringId = textId.getText();
-				if(stringId != null && !stringId.equals("insert Id")) {
-					int id = Integer.parseInt(stringId);
-					if(Main.TrafficLightList.getTrafficLight(id) != null) {
-						new ShowTrafficLightDetailsGUI(Main.TrafficLightList.getTrafficLight(id));
-						frame.dispose();
+				if(stringId.matches("[0-9]+")) {
+					if(stringId != null && !stringId.equals("insert Id")) {
+						int id = Integer.parseInt(stringId);
+						if(Main.TrafficLightList.getTrafficLight(id) != null) {
+							new ShowTrafficLightDetailsGUI(Main.TrafficLightList.getTrafficLight(id));
+							frame.dispose();
+						}else {
+							JOptionPane.showMessageDialog(null, "The traffic light you are looking for does not exist.");
+						}
+					
 					}else {
-						JOptionPane.showMessageDialog(null, "The traffic light you are looking for does not exist.");
+						JOptionPane.showMessageDialog(null, "Please type a valid ID");
 					}
+				}else JOptionPane.showMessageDialog(null,"You must put only numbers\n"
+						+ "Please try again");
 				
-				}else {
-					JOptionPane.showMessageDialog(null, "Please type a valid ID");
-				}
 			}
 			
 		});
@@ -89,22 +97,24 @@ public class FindLightGUI extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {	
-				
-				
-				if(Main.AdminList.getAdminFlag() == true) {
-					
-					String stringId = textId.getText();
-					int id = Integer.parseInt(stringId);
-					
-					if(Main.TrafficLightList.getTrafficLight(id) == null) {
-						new CreateGUI(id);
-						frame.dispose();
+				String stringId = textId.getText();
+				if(stringId.matches("[0-9]+")) {
+					if(Main.AdminList.getAdminFlag() == true) {
+						
+						int id = Integer.parseInt(stringId);
+						
+						if(Main.TrafficLightList.getTrafficLight(id) == null) {
+							new CreateGUI(id);
+							frame.dispose();
+						}else {
+							JOptionPane.showMessageDialog(null, "The traffic light you are trying to create already exists.");
+						}	
 					}else {
-						JOptionPane.showMessageDialog(null, "The traffic light you are trying to create already exists.");
-					}	
-				}else {
-					JOptionPane.showMessageDialog(null, "You must sign in as an Administrator to use this button.");
-				}
+						JOptionPane.showMessageDialog(null, "You must sign in as an Administrator to use this button.");
+					}
+				}else JOptionPane.showMessageDialog(null,"You must put only numbers\n"
+						+ "Please try again");
+				
 				
 			}
 			

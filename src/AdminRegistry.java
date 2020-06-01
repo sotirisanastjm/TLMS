@@ -9,13 +9,11 @@ public class AdminRegistry {
 	private Boolean adminFlag;
 	private String currentusername;
 	private String currentpassword;
-	
-	
+	private Administrator admin;
+	private File file = new File("AdminList.dat");
 	
 	public AdminRegistry() {
-		Administrator admin;
 		AdminList=new ArrayList<>();
-		File file = new File("AdminList.dat");
 		try {
 			Scanner reader = new Scanner(file);
 			String username;
@@ -43,7 +41,28 @@ public class AdminRegistry {
 		
 		
 	}
-
+	public void getScan() {
+		try {
+			Scanner reader = new Scanner(file);
+			String username;
+			String password="";
+			while(reader.hasNextLine()) {
+				username=password;
+				password=reader.next();
+				if(username.equals("Username:")) {
+					username=password;
+					password=reader.next();
+					password=reader.next();
+					admin=new Administrator(username,password);
+					AdminList.add(admin);
+				}
+			}
+			reader.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("ERROR IN ADMIN REGISTRY");
+		}
+	}
 	public Boolean getAdminFlag() {
 		return adminFlag;
 	}

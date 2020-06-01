@@ -81,6 +81,7 @@ public class LoginGui extends JFrame{
 		f.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		f.setResizable(false);
 		
+		
 		password.addActionListener(new AbstractAction() {
 			 @Override
 			    public void actionPerformed(ActionEvent e) {

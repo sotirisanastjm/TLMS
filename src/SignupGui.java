@@ -24,7 +24,7 @@ public class SignupGui extends JFrame {
 	private JTextField usrname;
 	private JTextField keyfield;
 	private JPanel btnpanel;
-
+	private JButton btnback;
 	
 	public SignupGui() {
 		
@@ -47,7 +47,7 @@ public class SignupGui extends JFrame {
 		usrname=new JTextField(15);
 		keyfield=new JTextField(5);
 		btnpanel= new JPanel();
-		
+		btnback=new JButton("Back to Login");
 		
 		
 		panel.setLayout(new BorderLayout());
@@ -72,6 +72,7 @@ public class SignupGui extends JFrame {
 		
 		btnpanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		btnpanel.add(createacc);
+		btnpanel.add(btnback);
 		panel.add(btnpanel,BorderLayout.SOUTH);
 		panel.add(infopanel,BorderLayout.CENTER);
 		
@@ -107,7 +108,8 @@ public class SignupGui extends JFrame {
 							out.write("\nPassword: "+password1);
 							out.close();
 							f.dispose();
-							new StartMenuGUI();
+							new LoginGui();
+							Main.AdminList.getScan();
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							System.out.print("ERROR SIGNUP FILE NOT OPENING");
@@ -121,6 +123,15 @@ public class SignupGui extends JFrame {
 			}
 			
 		});
+		btnback.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new LoginGui();
+				f.dispose();
+			}
+			
+		});
 	}
-	
 }
