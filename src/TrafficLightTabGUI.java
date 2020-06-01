@@ -98,7 +98,12 @@ public class TrafficLightTabGUI {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				
+				if(trafficLightList.getSelectedValuesList().size()>1) {
+					JOptionPane.showMessageDialog(frame,"You can only pick one Traffic Light");
+				}else {
+					new ShowTrafficLightDetailsGUI((TrafficLight)trafficLightList.getSelectedValue());
+					frame.dispose();
+				}
 			}
 			
 		});
@@ -107,7 +112,12 @@ public class TrafficLightTabGUI {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				
+				if(trafficLightList.getSelectedValuesList().size()>1) {
+					JOptionPane.showMessageDialog(frame,"You can only pick one Traffic Light");
+				}else {
+					new ShowTrafficLightGUI((TrafficLight)trafficLightList.getSelectedValue());
+					frame.dispose();
+				}
 			}
 			
 		});
