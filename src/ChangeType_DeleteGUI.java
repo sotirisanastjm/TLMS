@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class ChangeType_DeleteGUI extends JFrame{
 	
 	private JFrame frame;
@@ -47,6 +48,7 @@ public class ChangeType_DeleteGUI extends JFrame{
 		panel.add(labelType3);
 		
 		frame.setContentPane(panel);
+		frame.setIconImage(titleicon.getImage());
 		frame.setVisible(true);
 		frame.setSize(800,550);
 		frame.setTitle("Traffic Light Managment System - Change Type/Delete Traffic Light");

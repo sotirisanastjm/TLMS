@@ -21,6 +21,7 @@ public class ShowTrafficLightDetailsGUI {
 		JButton btnBack = new JButton("Back to Info");
 		JButton btnEdit = new JButton("Edit Details");
 		JButton btnChangeType_Delete = new JButton("Change Type or Delete");
+		ImageIcon titleicon=new ImageIcon("TLMS2.png");
 		JLabel label = new JLabel("Details");
 		JLabel idLabel = new JLabel("ID:");
 		JTextField id = new JTextField(String.valueOf(currentTrafficLight.getId()));
@@ -66,6 +67,7 @@ public class ShowTrafficLightDetailsGUI {
         
         frame.getContentPane().add(BorderLayout.NORTH, panel);
 		
+        frame.setIconImage(titleicon.getImage());
 		frame.setVisible(true);
 		frame.setSize(500,350);
 		frame.setTitle("Traffic Light Managment System - Traffic Light Details");
