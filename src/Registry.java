@@ -1,8 +1,11 @@
 import java.util.ArrayList;
+import java.util.List;
+import java.io.*;
 
 public class Registry {
 	
 	private ArrayList<TrafficLight> TrafficLightList;
+	
 	
 	public Registry() {
 		
@@ -11,7 +14,14 @@ public class Registry {
 	}
 	
 	public void addTrafficLight( TrafficLight aTrafficLight) {
-		TrafficLightList.add(aTrafficLight);
+		boolean exists=false;
+		for(TrafficLight a:TrafficLightList) {
+		if(a.getId()== aTrafficLight.getId())		
+			exists=true;
+		}
+		if(!exists) {
+			TrafficLightList.add(aTrafficLight);
+		}
 	}
 	
 	public TrafficLight getTrafficLight(int anId) {
@@ -25,6 +35,7 @@ public class Registry {
 	public ArrayList<TrafficLight> getList() {
 		return TrafficLightList;
 	}
+	
 	public void sortType() {
 		
 		TrafficLight temp;
@@ -163,5 +174,32 @@ public class Registry {
 			}
 		}
 	}
+	
+	
+    public static void writeToFile(List<TrafficLight> lights) throws IOException {
+        ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("TrafficList1.txt"));
+        os.writeObject(lights);
+        os.close();
+
+    }
+ 
+    public static TrafficLight ReadObjectFromFile(String filepath) {
+ 
+        try {
+ 
+            FileInputStream fileIn = new FileInputStream(filepath);
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+ 
+            TrafficLight obj = (TrafficLight) objectIn.readObject();
+ 
+            System.out.println("The Object has been read from the file");
+            objectIn.close();
+            return obj;
+ 
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
 	
 }
