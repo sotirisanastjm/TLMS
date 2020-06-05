@@ -13,7 +13,13 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		TrafficLight tl1 =new ThreeColorTrafficLight(100, 1, "Tsimiski", 5, "red", false, false);
+		try {
+			readFile();
+		} catch (ClassNotFoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+/*		TrafficLight tl1 =new ThreeColorTrafficLight(100, 1, "Tsimiski", 5, "red", false, false);
 		TrafficLight tl2 =new ThreeColorTrafficLight(101, 1, "Tsimiski", 7, "red", true, false);
 		TrafficLight gi1 =new ThreeColorTrafficLight(102, 1, "Aristotelous", 1, "green", false, false);
 		TrafficLight gi2 =new ThreeColorTrafficLight(103, 1, "Aristotelous", 2, "green", false, false);
@@ -59,27 +65,23 @@ public class Main {
 		TrafficLightList.addTrafficLight(gj2);
 		TrafficLightList.addTrafficLight(gj3);
 		TrafficLightList.addTrafficLight(gj4);
-		TrafficLightList.addTrafficLight(gj5); 
+		TrafficLightList.addTrafficLight(gj5); */
 		
 	
+		
+
+	
+
+	
+		
+
+		new LoginGui();
 		try {
 			Registry.writeToFile(TrafficLightList.getList());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try {
-			readFile();
-		} catch (ClassNotFoundException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	
-		
-
-		new LoginGui();
-
 	}
 	
 	 public static void readFile() throws ClassNotFoundException, IOException {

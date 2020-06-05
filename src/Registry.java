@@ -177,7 +177,7 @@ public class Registry {
 	
 	
     public static void writeToFile(List<TrafficLight> lights) throws IOException {
-        ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("TrafficList1.txt"));
+        ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("TrafficList.txt"));
         os.writeObject(lights);
         os.close();
 
