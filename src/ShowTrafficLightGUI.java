@@ -8,6 +8,9 @@ public class ShowTrafficLightGUI {
 	
 	public ShowTrafficLightGUI(TrafficLight aTrafficLight) {
 		
+		//image
+		ImageIcon titleicon=new ImageIcon("TLMS2.png");
+		
 		//frame
 		JFrame frame = new JFrame();		
 		
@@ -70,6 +73,7 @@ public class ShowTrafficLightGUI {
 			
 		
 		//soyma
+		frame.setIconImage(titleicon.getImage());
 		frame.getContentPane().add(BorderLayout.SOUTH, buttonPanel);      
         frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.setVisible(true);
