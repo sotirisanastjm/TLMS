@@ -23,10 +23,11 @@ public class CreateGUI extends JFrame{
 	private JCheckBox sign, crosswalk;
 	private boolean signChecked,crosswalkChecked;
 	private JLabel labelType0, labelType1, labelType2, labelType3;
-	
+	private JPanel labelarea;
 	public CreateGUI(int id) {
 		
 		String signString, crosswalkString;
+		labelarea=new JPanel();
 		titleicon=new ImageIcon("TLMS2.png");
 		frame = new JFrame();
 		panel = new JPanel();
@@ -52,23 +53,25 @@ public class CreateGUI extends JFrame{
 		
 		panel.add(textType);
 		panel.add(textStreet);
-		panel.add(textNumber);
+		panel.add(textNumber);		
 		panel.add(ColorChooser);
 		panel.add(sign);
 		panel.add(crosswalk);
 		panel.add(btnCreate);
 		panel.add(btnBack);
-		panel.add(labelType0);
-		panel.add(labelType1);
-		panel.add(labelType2);
-		panel.add(labelType3);
+		labelarea.add(labelType0);
+		labelarea.add(labelType1);
+		labelarea.add(labelType2);
+		labelarea.add(labelType3);
+		panel.add(labelarea);
+		
 		
 		frame.setResizable(false);
 		frame.setLocation(600,300);
 		frame.setIconImage(titleicon.getImage());
 		frame.setContentPane(panel);
 		frame.setVisible(true);
-		frame.setSize(800,550);
+		frame.setSize(600,350);
 		frame.setTitle("Traffic Light Managment System - Create Traffic Light");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

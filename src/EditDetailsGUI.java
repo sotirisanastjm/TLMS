@@ -14,6 +14,7 @@ public class EditDetailsGUI extends JFrame{
 	private ImageIcon titleicon;
 	private JButton btnprev;
 	private JButton btnnext;
+	private JButton btncurr;
 	private JButton btnback;
 	private JButton btnstartmenu;
 	private JList list;
@@ -36,11 +37,12 @@ public class EditDetailsGUI extends JFrame{
 		panel= new JPanel();
 		btnprev= new JButton("Previous Traffic Light");
 		btnnext= new JButton("Next Traffic Light");
+		btncurr= new JButton("Current Traffic Light");
 		btnback= new JButton("Back to Show Details");
 		btnstartmenu= new JButton("Back to Start Menu");
 		titleicon=new ImageIcon("TLMS2.png");
 		list = new JList(list1);
-		list.setPreferredSize(new Dimension(700,400));
+		list.setPreferredSize(new Dimension(400,200));
 		list.setCellRenderer(new TrafficRenderer());
 		scrollpane = new JScrollPane(list);
 		
@@ -51,6 +53,7 @@ public class EditDetailsGUI extends JFrame{
 		panel.add(label);
 		panel.add(scrollpane);
 		panel.add(btnprev);
+		panel.add(btncurr);
 		panel.add(btnnext);
 		panel.add(btnback);
 		panel.add(btnstartmenu);	
@@ -61,7 +64,7 @@ public class EditDetailsGUI extends JFrame{
 		
 		f.setResizable(false);
 		f.setLocation(600,300);
-		f.setSize(800, 550);
+		f.setSize(500,350);
 		f.setIconImage(titleicon.getImage());
 		f.setContentPane(panel);
 		f.setVisible(true);
@@ -70,6 +73,18 @@ public class EditDetailsGUI extends JFrame{
 		
 		
 		
+		btncurr.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				list1.removeAllElements();
+				label.setText("Current Traffic Light");
+				list1.addElement(light);
+				list.setModel(list1);
+			}
+			
+		});
 		btnprev.addActionListener(new ActionListener() {
 
 			@Override

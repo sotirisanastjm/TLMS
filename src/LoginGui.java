@@ -72,7 +72,7 @@ public class LoginGui extends JFrame{
 		
 		
 		f.add(panel);
-		f.setLocation(600,300);
+		f.setLocation(500,200);
 		f.setIconImage(titleicon.getImage());
 		f.setContentPane(panel);
 		f.setVisible(true);

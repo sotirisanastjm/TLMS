@@ -77,7 +77,8 @@ public class ShowTrafficLightGUI {
 		frame.getContentPane().add(BorderLayout.SOUTH, buttonPanel);      
         frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.setVisible(true);
-		frame.setSize(800,550);
+		frame.setSize(500,350);
+		frame.setLocation(600,300);
 		frame.setTitle("Traffic Light Managment System - Show Traffic Light");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -104,18 +105,18 @@ public class ShowTrafficLightGUI {
 				String color = colorTxt.getText();
 				//cases when id and type stay the same
 				if(id == aTrafficLight.getId() && type == aTrafficLight.getType()) {
-					if(street != aTrafficLight.getStreet() && color == aTrafficLight.getColor() && street != "") {
+					if(!aTrafficLight.getStreet().equals(street) && aTrafficLight.getColor().equals(color) && street != "") {
 						aTrafficLight.setStreet(street);
 						JOptionPane.showMessageDialog(null, "You successfully edited the Traffic Light's street.");		
 					}
-					if(street != aTrafficLight.getStreet() && color == aTrafficLight.getColor() && street == "") {
+					if(!aTrafficLight.getStreet().equals(street) && aTrafficLight.getColor().equals(color) && street == "") {
 						JOptionPane.showMessageDialog(null, "Street field cannot be empty");
 					}
-					if(color != aTrafficLight.getColor() && street == aTrafficLight.getStreet() && color != "") {
+					if(!aTrafficLight.getColor().equals(color) && aTrafficLight.getStreet().equals(street) && color != "") {
 						aTrafficLight.setColor(color);
 						JOptionPane.showMessageDialog(null, "You successfully edited the Traffic Light's color.");	
 					}
-					if(color != aTrafficLight.getColor() && street == aTrafficLight.getStreet() && color == "")
+					if(!aTrafficLight.getColor().equals(color) && aTrafficLight.getStreet().equals(street) && color == "")
 						JOptionPane.showMessageDialog(null, "Color field cannot be empty");
 				}
 				if(stringId == null){
@@ -129,10 +130,13 @@ public class ShowTrafficLightGUI {
 					if(JOptionPane.showConfirmDialog(null,"Traffic Light does not exist, do you want to create a new one?", "NO", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 						new CreateGUI(id);
 						frame.dispose();
-					}
+					}else idTxt.setText(String.valueOf(aTrafficLight.getId()));
 				}
 				
-					
+				idTxt.setEditable(false);
+				typeTxt.setEditable(false);
+				streetTxt.setEditable(false);
+				colorTxt.setEditable(false);
 			}});
 		
 		btnShowDetails.addActionListener(new ActionListener() {

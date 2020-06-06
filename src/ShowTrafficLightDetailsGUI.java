@@ -70,6 +70,7 @@ public class ShowTrafficLightDetailsGUI {
         frame.setIconImage(titleicon.getImage());
 		frame.setVisible(true);
 		frame.setSize(500,350);
+		frame.setLocation(600,300);
 		frame.setTitle("Traffic Light Managment System - Traffic Light Details");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

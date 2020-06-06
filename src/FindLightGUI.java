@@ -1,12 +1,7 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 @SuppressWarnings("serial")
 
 public class FindLightGUI extends JFrame{
@@ -16,26 +11,34 @@ public class FindLightGUI extends JFrame{
 	private JButton btnShow, btnShowDetails, btnCreate, btnBack;
 	private JTextField textId;
 	private ImageIcon titleicon;
-	
+	private JPanel btnarea;
+	private ImageIcon image;
+	private JLabel imagelabel;
 	public FindLightGUI() {
 		
+		image=new ImageIcon("wonderclipart.png");
+		imagelabel=new JLabel(image);
 		titleicon=new ImageIcon("TLMS2.png");
 		frame = new JFrame();
 		panel = new JPanel();
+		btnarea=new JPanel();
 		btnShow = new JButton("Show Traffic Light");
 		btnShowDetails = new JButton("Show Details");
 		btnCreate = new JButton("Create");
 		btnBack = new JButton("Back to Start Menu");
 		textId = new JTextField("insert Id",10);
 		
-		panel.add(textId);
-		panel.add(btnShow);
-		panel.add(btnShowDetails);
-		panel.add(btnCreate);
-		panel.add(btnBack);
+
+		panel.add(imagelabel);
+		btnarea.add(textId);
+		btnarea.add(btnShow);
+		btnarea.add(btnShowDetails);
+		btnarea.add(btnCreate);
+		btnarea.add(btnBack);
+		panel.add(btnarea);
 		
 		frame.setResizable(false);
-		frame.setLocation(600,300);
+		frame.setLocation(500,200);
 		frame.setIconImage(titleicon.getImage());
 		frame.setContentPane(panel);
 		frame.setVisible(true);
@@ -112,9 +115,11 @@ public class FindLightGUI extends JFrame{
 					}else {
 						JOptionPane.showMessageDialog(null, "You must sign in as an Administrator to use this button.");
 					}
+				}else if(stringId.equals("") || stringId.equals("insert Id") ) {
+					JOptionPane.showMessageDialog(null,"You must put an Id to create a Traffic Light\n"
+							+ "Please try again");
 				}else JOptionPane.showMessageDialog(null,"You must put only numbers\n"
 						+ "Please try again");
-				
 				
 			}
 			

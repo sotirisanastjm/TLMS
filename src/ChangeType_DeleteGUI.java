@@ -22,11 +22,12 @@ public class ChangeType_DeleteGUI extends JFrame{
 	private TrafficLight currentTrafficLight;
 	private JLabel labelType0, labelType1, labelType2, labelType3;
 	private boolean isTrafficLightDeleted;
+	private JPanel labelarea;
 	
 	public ChangeType_DeleteGUI(TrafficLight aTrafficLight) {
 		
 		isTrafficLightDeleted = false;
-		
+		labelarea=new JPanel();
 		currentTrafficLight = aTrafficLight;
 		titleicon=new ImageIcon("TLMS2.png");
 		frame = new JFrame();
@@ -43,16 +44,19 @@ public class ChangeType_DeleteGUI extends JFrame{
 		panel.add(textNewType);
 		panel.add(btnChangeType);
 		panel.add(btnDelete);
+		
+		labelarea.add(labelType0);
+		labelarea.add(labelType1);
+		labelarea.add(labelType2);
+		labelarea.add(labelType3);
+		panel.add(labelarea);
 		panel.add(btnBack);
-		panel.add(labelType0);
-		panel.add(labelType1);
-		panel.add(labelType2);
-		panel.add(labelType3);
 		
 		frame.setContentPane(panel);
 		frame.setIconImage(titleicon.getImage());
 		frame.setVisible(true);
-		frame.setSize(800,550);
+		frame.setSize(700,350);
+		frame.setLocation(600,300);
 		frame.setTitle("Traffic Light Managment System - Change Type/Delete Traffic Light");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -79,20 +83,24 @@ public class ChangeType_DeleteGUI extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				int currentId = currentTrafficLight.getId();
-				
-				if(Main.TrafficLightList.getTrafficLight(currentId) != null) {
-					
-					String stringNewType = textNewType.getText();
-					int newType = Integer.parseInt(stringNewType);
-					
-					if(newType == 0 || newType == 1 || newType == 2 || newType == 3) {
-						Main.TrafficLightList.changeType(currentTrafficLight.getId(), newType);
-						JOptionPane.showMessageDialog(null, "You succesfully changed the type of the Traffic Light");
-					}else {
-						JOptionPane.showMessageDialog(null, "The new type parameter must be 0, 1, 2, or 3.");
-					}
+				if(textNewType.getText().equals("") || textNewType.getText().equals("insert new Type") || !textNewType.getText().matches("[0-9]+")) {
+					JOptionPane.showMessageDialog(null, "You need to put only numbers from 0 to 3");
 				}else {
-					JOptionPane.showMessageDialog(null, "You have deleted this Traffic Light.");
+					if(Main.TrafficLightList.getTrafficLight(currentId) != null) {
+						
+						String stringNewType = textNewType.getText();
+						int newType = Integer.parseInt(stringNewType);
+						
+						if(newType == 0 || newType == 1 || newType == 2 || newType == 3) {
+							Main.TrafficLightList.changeType(currentTrafficLight.getId(), newType);
+							JOptionPane.showMessageDialog(null, "You succesfully changed the type of the Traffic Light");
+						}else {
+							JOptionPane.showMessageDialog(null, "The new type parameter must be 0, 1, 2, or 3.");
+						}
+					}else {
+						JOptionPane.showMessageDialog(null, "You have deleted this Traffic Light.");
+					}
+					
 				}
 				
 					

@@ -100,6 +100,8 @@ public class TrafficLightTabGUI {
 				// TODO Auto-generated method stub
 				if(trafficLightList.getSelectedValuesList().size()>1) {
 					JOptionPane.showMessageDialog(frame,"You can only pick one Traffic Light");
+				}else if(trafficLightList.getSelectedValuesList().size()<1){
+					JOptionPane.showMessageDialog(frame,"You need to pick a Traffic Light");
 				}else {
 					new ShowTrafficLightDetailsGUI((TrafficLight)trafficLightList.getSelectedValue());
 					frame.dispose();
@@ -114,6 +116,8 @@ public class TrafficLightTabGUI {
 				// TODO Auto-generated method stub
 				if(trafficLightList.getSelectedValuesList().size()>1) {
 					JOptionPane.showMessageDialog(frame,"You can only pick one Traffic Light");
+				}else if(trafficLightList.getSelectedValuesList().size()<1){
+					JOptionPane.showMessageDialog(frame,"You need to pick a Traffic Light");
 				}else {
 					new ShowTrafficLightGUI((TrafficLight)trafficLightList.getSelectedValue());
 					frame.dispose();
