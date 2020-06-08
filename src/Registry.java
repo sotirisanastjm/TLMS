@@ -84,7 +84,7 @@ public class Registry {
 		
 		for(int i=0;i<TrafficLightList.size();i++) {
 			
-			if(TrafficLightList.get(i).getStreet() == currentTrafficLight.getStreet() && TrafficLightList.get(i).getStreetNumber() < currentTrafficLight.getStreetNumber() && TrafficLightList.get(i).getType() == currentTrafficLight.getType()) {
+			if(TrafficLightList.get(i).getStreet().equals(currentTrafficLight.getStreet()) && TrafficLightList.get(i).getStreetNumber() < currentTrafficLight.getStreetNumber() && TrafficLightList.get(i).getType() == currentTrafficLight.getType()) {
 				TrafficLightPrev.add(TrafficLightList.get(i));
 			}
 		}
@@ -109,7 +109,7 @@ public class Registry {
 		
 		for(int i=0;i<TrafficLightList.size();i++) {
 			
-			if(TrafficLightList.get(i).getStreet() == currentTrafficLight.getStreet() && TrafficLightList.get(i).getStreetNumber() > currentTrafficLight.getStreetNumber() && TrafficLightList.get(i).getType() == currentTrafficLight.getType()) {
+			if(TrafficLightList.get(i).getStreet().equals( currentTrafficLight.getStreet()) && TrafficLightList.get(i).getStreetNumber() > currentTrafficLight.getStreetNumber() && TrafficLightList.get(i).getType() == currentTrafficLight.getType()) {
 				TrafficLightNext.add(TrafficLightList.get(i));
 			}
 		}
