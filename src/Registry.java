@@ -135,7 +135,7 @@ public class Registry {
 		} else if(type == 1) {
 			newTrafficLight = new ThreeColorTrafficLight(id, 1, street, streetNumber, color, sign, crosswalk);
 		} else if(type == 2) {
-			newTrafficLight = new SingleColorTrafficLight(id, 2, street, streetNumber, color, sign, crosswalk);
+			newTrafficLight = new SingleColorTrafficLight(id, 2, street, streetNumber, "yellow", sign, crosswalk);
 		} else if(type == 3) {
 			newTrafficLight = new BicycleTrafficLight(id, 3, street, streetNumber, color, sign, crosswalk);
 		}

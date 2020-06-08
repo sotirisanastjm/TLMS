@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -117,6 +118,11 @@ public class CreateGUI extends JFrame{
 					if(type == 0 || type == 1 || type == 2 || type == 3) {
 						if(Main.TrafficLightList.getTrafficLight(id) == null) {
 							Main.TrafficLightList.create(id, type, street, streetNumber, color, signChecked, crosswalkChecked);
+							try {
+								Registry.writeToFile(Main.TrafficLightList.getList());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
 							JOptionPane.showMessageDialog(null, "You successfully created the Traffic Light.");
 						}else {
 							JOptionPane.showMessageDialog(null, "You have already created a Traffic Light with this id.");

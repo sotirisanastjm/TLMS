@@ -19,6 +19,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 /*		TrafficLight tl1 =new ThreeColorTrafficLight(100, 1, "Tsimiski", 5, "red", false, false);
 		TrafficLight tl2 =new ThreeColorTrafficLight(101, 1, "Tsimiski", 7, "red", true, false);
 		TrafficLight gi1 =new ThreeColorTrafficLight(102, 1, "Aristotelous", 1, "green", false, false);
@@ -42,6 +43,7 @@ public class Main {
 		TrafficLight gj3 =new SingleColorTrafficLight(120, 2, "Ethnikhs amynhs", 0, "yellow", false, false);
 		TrafficLight gj4 =new SingleColorTrafficLight(121, 2, "Ethnikhs amynhs", 0, "yellow", false, false);
 		TrafficLight gj5 =new SingleColorTrafficLight(122, 2, "Ethnikhs amynhs", 0, "yellow", false, false);
+		TrafficLight gj6 =new SingleColorTrafficLight(130, 2, "Ethnikhs amynhs", 20, "yellow", true, false);
 		
 		TrafficLightList.addTrafficLight(tl1);
 		TrafficLightList.addTrafficLight(tl2);
@@ -65,23 +67,11 @@ public class Main {
 		TrafficLightList.addTrafficLight(gj2);
 		TrafficLightList.addTrafficLight(gj3);
 		TrafficLightList.addTrafficLight(gj4);
-		TrafficLightList.addTrafficLight(gj5); */
+		TrafficLightList.addTrafficLight(gj5);
+		TrafficLightList.addTrafficLight(gj6); */
 		
-	
-		
-
-	
-
-	
-		
-
 		new LoginGui();
-		try {
-			Registry.writeToFile(TrafficLightList.getList());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 	
 	 public static void readFile() throws ClassNotFoundException, IOException {
@@ -110,9 +100,7 @@ public class Main {
              }
          }
         
-
          ois.close();
      }
-
 
 }

@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -93,6 +94,11 @@ public class ChangeType_DeleteGUI extends JFrame{
 						
 						if(newType == 0 || newType == 1 || newType == 2 || newType == 3) {
 							Main.TrafficLightList.changeType(currentTrafficLight.getId(), newType);
+							try {
+								Registry.writeToFile(Main.TrafficLightList.getList());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
 							JOptionPane.showMessageDialog(null, "You succesfully changed the type of the Traffic Light");
 						}else {
 							JOptionPane.showMessageDialog(null, "The new type parameter must be 0, 1, 2, or 3.");
@@ -117,6 +123,11 @@ public class ChangeType_DeleteGUI extends JFrame{
 				if(Main.TrafficLightList.getTrafficLight(currentId) != null) {
 					isTrafficLightDeleted = true;
 					Main.TrafficLightList.delete(currentId);
+					try {
+						Registry.writeToFile(Main.TrafficLightList.getList());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 					JOptionPane.showMessageDialog(null, "You succesfully deleted the Traffic Light.");
 				}else {
 					JOptionPane.showMessageDialog(null, "You have already deleted this Traffic Light.");
