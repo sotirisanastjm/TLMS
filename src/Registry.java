@@ -182,24 +182,4 @@ public class Registry {
         os.close();
 
     }
- 
-    public static TrafficLight ReadObjectFromFile(String filepath) {
- 
-        try {
- 
-            FileInputStream fileIn = new FileInputStream(filepath);
-            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
- 
-            TrafficLight obj = (TrafficLight) objectIn.readObject();
- 
-            System.out.println("The Object has been read from the file");
-            objectIn.close();
-            return obj;
- 
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return null;
-        }
-    }
-	
 }

@@ -35,8 +35,8 @@ public class EditDetailsGUI extends JFrame{
 		label=new JLabel("Current Traffic Light");
 		f = new JFrame();
 		panel= new JPanel();
-		btnprev= new JButton("Previous Traffic Light");
-		btnnext= new JButton("Next Traffic Light");
+		btnprev= new JButton("Previous Traffic Lights");
+		btnnext= new JButton("Next Traffic Lights");
 		btncurr= new JButton("Current Traffic Light");
 		btnback= new JButton("Back to Show Details");
 		btnstartmenu= new JButton("Back to Start Menu");
@@ -95,7 +95,7 @@ public class EditDetailsGUI extends JFrame{
 					for(int i=0;i<TrafficLightPrev.size();i++) {
 						list1.addElement(TrafficLightPrev.get(i));
 					}
-					label.setText("The Previous Traffic Light");
+					label.setText("The Previous Traffic Lights");
 					list.setModel(list1);
 				}else JOptionPane.showMessageDialog(f,"There are no Previous Traffic Lights");
 			}
@@ -111,7 +111,7 @@ public class EditDetailsGUI extends JFrame{
 					for(int i=0;i<TrafficLightNext.size();i++) {
 						list1.addElement(TrafficLightNext.get(i));
 					}
-					label.setText("The Next Traffic Light");
+					label.setText("The Next Traffic Lights");
 					list.setModel(list1);
 				}else JOptionPane.showMessageDialog(f,"There are no Next Traffic Lights");
 			}
