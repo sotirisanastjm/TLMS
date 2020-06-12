@@ -77,7 +77,7 @@ public class Registry {
 		}
 		return null;
 	}
-	//finds previous traffic light based on street and street number
+	//finds previous traffic lights based on street, street number and type
 	public ArrayList<TrafficLight> findPrev(int id){
 		
 		ArrayList<TrafficLight> TrafficLightPrev = new ArrayList<>();
@@ -102,7 +102,7 @@ public class Registry {
 		}
 		return TrafficLightPrev;
 	}
-	//finds next traffic light based on street and street number
+	//finds next traffic lights based on street, street number and type
 	public ArrayList<TrafficLight> findNext(int id){
 		
 		ArrayList<TrafficLight> TrafficLightNext = new ArrayList<>();

@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-//this class finds the next and the previous Traffic Light
+//this class finds the next and the previous Traffic Lights
 
 @SuppressWarnings("serial")
 public class EditDetailsGUI extends JFrame{
