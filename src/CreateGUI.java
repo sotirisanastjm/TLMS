@@ -1,3 +1,5 @@
+//This GUI lets the user create new Traffic Lights
+
 import java.awt.Choice;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

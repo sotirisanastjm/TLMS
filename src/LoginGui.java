@@ -1,3 +1,4 @@
+//Startup GUI with 3 choices. Login/ SignUp/ Continue As Customer
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

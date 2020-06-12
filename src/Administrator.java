@@ -1,4 +1,4 @@
-
+//This class is for Objects of type Administrator used in AdminRegistry
 public class Administrator {
 
 	private String username;
@@ -9,8 +9,6 @@ public class Administrator {
 		this.password=password;
 
 	}
-
-
 
 	public String getusername() {
 		return username;

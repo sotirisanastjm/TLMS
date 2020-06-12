@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+//This is the GUI that shows up after the user clicks the button to change type or delete
 
 public class ChangeType_DeleteGUI extends JFrame{
 	

@@ -1,3 +1,4 @@
+//this is a renderer for the Traffic light list
 import java.awt.Component;
 
 import javax.swing.*;

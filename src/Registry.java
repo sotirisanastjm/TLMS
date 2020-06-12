@@ -1,3 +1,4 @@
+//the management of the Traffic Light List
 import java.util.ArrayList;
 import java.util.List;
 import java.io.*;
@@ -12,7 +13,7 @@ public class Registry {
 		this.TrafficLightList = new ArrayList<TrafficLight>();
 		
 	}
-	
+	//adds a new traffic light to the list
 	public void addTrafficLight( TrafficLight aTrafficLight) {
 		boolean exists=false;
 		for(TrafficLight a:TrafficLightList) {
@@ -23,7 +24,7 @@ public class Registry {
 			TrafficLightList.add(aTrafficLight);
 		}
 	}
-	
+	//gets and Id and returns a traffic light 
 	public TrafficLight getTrafficLight(int anId) {
 		for(TrafficLight trafficLight: TrafficLightList) {
 			if(trafficLight.getId() == anId)
@@ -31,11 +32,11 @@ public class Registry {
 		}
 		return null;
 	}
-	
+	//returns the whole list
 	public ArrayList<TrafficLight> getList() {
 		return TrafficLightList;
 	}
-	
+	//sorts the list by type ascending
 	public void sortType() {
 		
 		TrafficLight temp;
@@ -50,7 +51,7 @@ public class Registry {
 		}
 		
 	}
-	
+	//sorts the list by Id ascending
 	public void sortId() {
 		
 		TrafficLight temp;
@@ -76,7 +77,7 @@ public class Registry {
 		}
 		return null;
 	}
-	
+	//finds previous traffic light based on street and street number
 	public ArrayList<TrafficLight> findPrev(int id){
 		
 		ArrayList<TrafficLight> TrafficLightPrev = new ArrayList<>();
@@ -101,7 +102,7 @@ public class Registry {
 		}
 		return TrafficLightPrev;
 	}
-	
+	//finds next traffic light based on street and street number
 	public ArrayList<TrafficLight> findNext(int id){
 		
 		ArrayList<TrafficLight> TrafficLightNext = new ArrayList<>();
@@ -126,7 +127,7 @@ public class Registry {
 		}
 		return TrafficLightNext;
 	}
-	
+	//gets info and creates a new traffic Light
 	public void create(int id, int type, String street, int streetNumber, String color, boolean sign, boolean crosswalk) {
 		
 		TrafficLight newTrafficLight = null;
@@ -142,7 +143,7 @@ public class Registry {
 		TrafficLightList.add(newTrafficLight);
 		
 	}
-	
+	//deletes a traffic light from the list
 	public void delete(int id) {
 		
 		for(int i=0;i<TrafficLightList.size();i++) {
@@ -152,7 +153,7 @@ public class Registry {
 			}
 		}
 	}
-	
+	//changes a traffic light's type
 	public void changeType(int id, int newType) {
 		
 		TrafficLight currentTrafficLight = this.find(id);
@@ -175,11 +176,13 @@ public class Registry {
 		}
 	}
 	
-	
+	//writes the traffic light list to a file
     public static void writeToFile(List<TrafficLight> lights) throws IOException {
-        ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("TrafficList.txt"));
+        ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("TrafficList.dat"));
         os.writeObject(lights);
         os.close();
 
     }
+    
+    
 }

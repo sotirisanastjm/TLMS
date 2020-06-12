@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
+//this class finds the next and the previous Traffic Light
 
 @SuppressWarnings("serial")
 public class EditDetailsGUI extends JFrame{
@@ -17,14 +17,16 @@ public class EditDetailsGUI extends JFrame{
 	private JButton btncurr;
 	private JButton btnback;
 	private JButton btnstartmenu;
+	@SuppressWarnings("rawtypes")
 	private JList list;
 	private JScrollPane scrollpane;
 	private JLabel label;
 
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public EditDetailsGUI(TrafficLight light){
 		
-		int num=0,id=0;
+		int id=0;
 		id=light.getId();
 		ArrayList<TrafficLight> TrafficLightNext = new ArrayList<>(Main.TrafficLightList.findNext(id));
 		ArrayList<TrafficLight> TrafficLightPrev = new ArrayList<>(Main.TrafficLightList.findPrev(id));

@@ -1,4 +1,6 @@
-
+//this GUI displays the traffic lists in a list
+//the user can select to sort them
+//or he can select a traffic light and then proceed with further actions
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

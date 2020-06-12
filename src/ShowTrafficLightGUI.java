@@ -1,3 +1,4 @@
+//Shows some basic info of the traffic light
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -87,8 +88,8 @@ public class ShowTrafficLightGUI {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//if the user is admin, he can edit textfields
-					idTxt.setEditable(true);
-					typeTxt.setEditable(true);
+					//idTxt.setEditable(true);
+					//typeTxt.setEditable(true);
 					streetTxt.setEditable(true);
 					colorTxt.setEditable(true);			
 			}});

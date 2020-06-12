@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-
+//This class helps in the management of administrator accounts
 
 public class AdminRegistry {
 
@@ -14,6 +14,7 @@ public class AdminRegistry {
 	
 	public AdminRegistry() {
 		AdminList=new ArrayList<>();
+		//loads all administrator accounts from dat file and keeps them in an ArrayList
 		try {
 			Scanner reader = new Scanner(file);
 			String username;
@@ -31,7 +32,6 @@ public class AdminRegistry {
 			}
 			reader.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			System.out.println("ERROR IN ADMIN REGISTRY");
 		}
 		
@@ -93,6 +93,7 @@ public class AdminRegistry {
 		
 			
 	}
+	//checks if the username:password combination is an admin account
 	public void isAdmin(String username , String password) {
 		for(int i = 0;i<AdminList.size();i++) {
 			if(username.equals(AdminList.get(i).getusername())&&password.equals(AdminList.get(i).getpassword())) {

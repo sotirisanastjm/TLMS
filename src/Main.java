@@ -1,3 +1,5 @@
+//To ena kommati me thn diasyndesh twn fanariwn den kataferame na to ylopoihsoyme
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -13,7 +15,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		try {
-			readFile();
+			readFile();//Reads the data from the TrafficList.dat file to use previously saved Traffic LIghts
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
@@ -22,9 +24,11 @@ public class Main {
 		
 	}
 	
+	
 	 public static void readFile() throws ClassNotFoundException, IOException {
-         ois = new ObjectInputStream(new FileInputStream("TrafficList.txt"));
-         List<Object> input = (List<Object>) ois.readObject();
+         ois = new ObjectInputStream(new FileInputStream("TrafficList.dat"));
+         @SuppressWarnings("unchecked")
+		List<Object> input = (List<Object>) ois.readObject();
          List<Object> checkList = new ArrayList<>();
          // this will contain the list of the objects
          for (Object l : input) {

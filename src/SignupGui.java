@@ -1,3 +1,4 @@
+//Here the user can sign up an administrator account if he has the code
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

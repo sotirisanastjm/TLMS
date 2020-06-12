@@ -1,4 +1,6 @@
-import java.awt.*;
+//In this class you can search for a Traffic Light, show its info, show its details 
+// or even create one if it does not exist
+
 import java.awt.event.*;
 import javax.swing.*;
 
